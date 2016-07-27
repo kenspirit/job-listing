@@ -10,6 +10,7 @@
 #  wage_upper  :integer
 #  wage_lower  :integer
 #  contact     :string
+#  is_hidden   :boolean          default(TRUE)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
