@@ -1,0 +1,2 @@
+module Admin::JobsControllerHelper
+end
