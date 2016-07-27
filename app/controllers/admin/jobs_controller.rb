@@ -1,5 +1,5 @@
 class Admin::JobsController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
+  before_filter :authenticate_user!
   before_filter :require_is_admin
   
   def index
@@ -45,14 +45,6 @@ class Admin::JobsController < ApplicationController
 
     @job.destroy
     redirect_to admin_jobs_path, alert: "已刪除"
-  end
-
-  def require_is_admin
-    if !current_user.admin?
-      flash[:alert] = "Not Admin"
-
-      redirect_to root_path
-    end
   end
 
   private 
