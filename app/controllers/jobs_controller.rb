@@ -7,6 +7,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
 
     if @job.hidden?
+      flash[:warning] = "This Job already archieved"
       redirect_to root_path
       return
     end
