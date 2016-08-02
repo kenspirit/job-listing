@@ -1,3 +1,14 @@
+<div class="dropdown pull-right">
+  <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sorting
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dLabel">
+    <li><%= link_to("Descending by Upper Wage", jobs_path(:order_by => "by_wage_upper")) %></li>
+    <li><%= link_to("Descending by Lower Wage", jobs_path(:order_by => "by_wage_lower")) %></li>
+    <li><%= link_to("Descending by Created At", jobs_path(:order_by => "by_created_at")) %></li>
+  </ul>
+</div>
 <div class="col-md-12">
   <table class="table table-hover">
     <thead>
@@ -5,6 +16,9 @@
         <td>#</td>
         <td>Title</td>
         <td>Description</td>
+        <td>Upper Wage</td>
+        <td>Lower Wage</td>
+        <td>Created At</td>
       </tr>
     </thead>
     <tbody>
@@ -13,6 +27,9 @@
           <td>#</td>
           <td><%= link_to(job.title, job_path(job)) %></td>
           <td><%= job.description %></td>
+          <td><%= job.wage_upper %></td>
+          <td><%= job.wage_lower %></td>
+          <td><%= job.created_at %></td>
         </tr>
       <% end %>
     </tbody>

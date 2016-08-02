@@ -1,6 +1,15 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.where(:is_hidden => false).order("created_at DESC")
+    order_by = params[:order_by]
+
+    case order_by
+    when 'by_wage_upper'
+      @jobs = Job.published.order("wage_upper DESC")
+    when 'by_wage_lower'
+      @jobs = Job.published.order("wage_lower DESC")
+    else
+      @jobs = Job.published.recent
+    end
   end
 
   def show

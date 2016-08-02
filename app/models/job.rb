@@ -18,6 +18,9 @@ class Job < ApplicationRecord
   validates :wage_upper, numericality: {only_integer: true, greater_than: :wage_lower}
   validates :wage_lower, numericality: {only_integer: true, greater_than: 0}
 
+  scope :published, -> { where(is_hidden: false) }
+  scope :recent, -> { order('created_at DESC') }
+
   def hidden?
     is_hidden
   end
