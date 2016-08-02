@@ -4,4 +4,11 @@
   <p>
     <%= simple_format(@job.description) %>
   </p>
+  <p style="margin: 50px"/>
+  <p>Wage Upper Bound: <%= @job.wage_upper %></p>
+  <p>Wage Lower Bound: <%= @job.wage_lower %></p>
+  <p>Created At: <%= @job.created_at %></p>
+</div>
+<div class="text-center">
+  <%= link_to("投交履歷", new_job_resume_path(@job), :style => "font-size: 30px; text-decoration:underline;") %>
 </div>
