@@ -8,7 +8,7 @@
         <td>#</td>
         <td>Status</td>
         <td>Title</td>
-        <td>Description</td>
+        <td>Resume Count</td>
         <td>Upper Wage</td>
         <td>Lower Wage</td>
         <td>Created At</td>
@@ -20,7 +20,7 @@
           <td>#</td>
           <td><%= render_job_status(job) %></td>
           <td><%= link_to(job.title, admin_job_path(job)) %></td>
-          <td><%= job.description %></td>
+          <td><%= link_to(job.resumes.count, admin_job_resumes_path(job)) %></td>
           <td><%= job.wage_upper %></td>
           <td><%= job.wage_lower %></td>
           <td><%= job.created_at %></td>
